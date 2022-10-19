@@ -1,11 +1,13 @@
-import { CATEGORY_DATA } from './shopData';
+import { Routes, Route } from 'react-router-dom';
 
-import './App.css';
-import Directory from './components/directory/directory.component';
+import Home from './routes/home/home.component';
 
 const App = () => {
-
-  return <Directory categories={CATEGORY_DATA}/>;
-}
+  return (
+    <Routes>
+      <Route path='/' index element={<Home />} />
+    </Routes>
+  );
+};
 
 export default App;
