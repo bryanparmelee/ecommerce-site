@@ -1,5 +1,7 @@
 import { Link, Outlet } from "react-router-dom"
 
+import './navigation.styles.scss';
+
 const Navigation = () => {
     return (
       <>
@@ -10,6 +12,9 @@ const Navigation = () => {
             <div className="nav-links-container">
                 <Link className="nav-link" to='/shop'>
                     SHOP
+                </Link>
+                <Link className="nav-link" to='/sign-in'>
+                    SIGN IN
                 </Link>
             </div>
 
