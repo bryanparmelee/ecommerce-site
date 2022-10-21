@@ -1,4 +1,3 @@
-import { async } from '@firebase/util';
 import { initializeApp } from 'firebase/app';
 import { 
     getAuth, 
@@ -25,13 +24,18 @@ const firebaseConfig = {
   
 const firebaseApp = initializeApp(firebaseConfig);
 
+const googleProvider = new GoogleAuthProvider();
+
 const provider = new GoogleAuthProvider();
 provider.getCustomParameters({
     prompt: "select_account"
 });
 
 export const auth = getAuth();
-export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
+export const signInWithGooglePopup = () => 
+    signInWithPopup(auth, googleProvider);
+export const signInWithGoogleRedirect = () => 
+    signInWithRedirect(auth, googleProvider);
 
 export const db = getFirestore();
 
