@@ -3,13 +3,21 @@ import { createContext, useEffect, useState } from "react";
 import { onAuthStateChangedListener, createUserDocFromAuth } from "../utils/firebase/firebase.utils";
 
 export const UserContext = createContext({
+    isAccountOpen: false,
+    setIsAccountOpen: () => {},
     currentUser: null,
     setCurrentUser: () => null,
 });
 
 export const UserProvider = ({ children }) => {
     const [currentUser, setCurrentUser]= useState(null);
-    const value = {currentUser, setCurrentUser};
+    const [isAccountOpen, setIsAccountOpen] = useState(false);
+    const value = {
+        currentUser, 
+        setCurrentUser, 
+        isAccountOpen, 
+        setIsAccountOpen
+    };
 
     useEffect(() => {
         const unsubscribe = onAuthStateChangedListener((user) => {
