@@ -1,7 +1,7 @@
 import SignUpForm from "../../components/sign-up-form/sign-up-form.component";
-import '../sign-in-page/sign-in-page.styles.scss';
+import '../sign-in/sign-in.styles.scss';
 
-const SignUpPage = () => {
+const SignUp = () => {
     return (
         <div className="sign-in-container">
             <SignUpForm />
@@ -9,4 +9,4 @@ const SignUpPage = () => {
     )
 }
 
-export default SignUpPage;
+export default SignUp;
