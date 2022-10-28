@@ -14,7 +14,7 @@ import '../../components/cart-dropdown/cart-dropdown.styles.scss';
 
 const Navigation = () => {
     const { currentUser } = useContext(UserContext);
-    const { isCartOpen } = useContext(CartContext);
+    const { isCartOpen, setIsCartOpen } = useContext(CartContext);
     const  {isAccountOpen, setIsAccountOpen } = useContext(UserContext);
 
     const toggleAccountOpen = () => setIsAccountOpen(!isAccountOpen);

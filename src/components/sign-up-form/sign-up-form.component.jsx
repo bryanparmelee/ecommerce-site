@@ -4,6 +4,10 @@ import { createAuthUserWithEmailAndPassword, createUserDocFromAuth } from "../..
 
 import FormInput from "../form-input/form-input.component";
 
+import Button from "../button/button.component";
+
+import './sign-up-form.styles.scss';
+
 const defaultFormFields = {
     displayName: '',
     email: '',
@@ -90,8 +94,8 @@ const SignUpForm = () => {
                     name='confirmPassword' 
                     value={confirmPassword}                         
                 />
+                <Button type="submit">Sign Up</Button>
 
-                <button type="submit">Sign Up</button>
             </form>
         </div>
     )

@@ -1,5 +1,6 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { UserContext } from "../../contexts/user.context";
+import { CartContext } from "../../contexts/cart.context";
 import { Link } from "react-router-dom";
 import Button from "../button/button.component";
 
@@ -7,8 +8,7 @@ import './account-dropdown.styles.scss';
 
 const AccountDropdown = () => {
     const { currentUser, setCurrentUser, isAccountOpen, setIsAccountOpen } = useContext(UserContext);
-
-
+      
     const signOut = () => {
         setCurrentUser(null);
         setIsAccountOpen(false);

@@ -7,6 +7,9 @@ import {
 } from "../../utils/firebase/firebase.utils";
 
 import FormInput from "../form-input/form-input.component";
+import Button from "../button/button.component";
+
+import './sign-in-form.styles.scss';
 
 const defaultFormFields = {
     email: '',
@@ -57,30 +60,33 @@ const SignInForm = () => {
     }
 
     return (
-        <div>
+        <div className="sign-in-form-container">
             <h1>Sign in with email and password</h1>
-            <form onSubmit={handleSubmit}>        
+            <form
+                className="sign-in-form" 
+                onSubmit={handleSubmit}>        
+                <>
+                    <FormInput
+                        label="Email"
+                        type="email" 
+                        required 
+                        onChange={handleChange} 
+                        name='email' 
+                        value={email}                         
+                    />
 
-                <FormInput
-                    label="Email"
-                    type="email" 
-                    required 
-                    onChange={handleChange} 
-                    name='email' 
-                    value={email}                         
-                />
-
-                <FormInput 
-                    label="Password"
-                    type="password" 
-                    required 
-                    onChange={handleChange} 
-                    name='password' 
-                    value={password}
-                 />
-
-                <button type="submit">Sign In</button>
-                <button type="button" onClick={signInWithGoogle}>Sign In With Google</button>
+                    <FormInput 
+                        label="Password"
+                        type="password" 
+                        required 
+                        onChange={handleChange} 
+                        name='password' 
+                        value={password}
+                    />                
+                    <Button type="submit">Sign In</Button>
+                </>
+                <span>OR</span>
+                <Button onClick={signInWithGoogle}>Sign In With Google</Button>
             </form>
         </div>
     )
