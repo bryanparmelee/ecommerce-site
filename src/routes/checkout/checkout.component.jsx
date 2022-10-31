@@ -37,7 +37,9 @@ const Checkout = () => {
                     <span className='empty-message'>Your cart is empty</span>
                 )}
             </div>
-            <div className='total'>Total: ${cartTotal}</div>
+            <div className='total'>
+                {cartTotal > 0 && `Total: ${cartTotal}`}            
+            </div>
         </div>
     )
 }
