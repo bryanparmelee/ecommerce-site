@@ -1,0 +1,29 @@
+.cart-success-container {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(1, 1, 1, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+        .close-symbol {
+            cursor: pointer;
+        }
+        .success-card {
+            width: 500px;
+            height: 400px;
+            background-color: antiquewhite;
+            margin: 0 auto;
+        }
+        .success-item {            
+            img {
+                width: 100px;
+                height: auto;
+            }
+        }
+
+}
