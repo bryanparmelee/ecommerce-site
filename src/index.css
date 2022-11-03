@@ -1,6 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   margin: 0;
-  padding: 20px 40px;
+
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -13,10 +17,10 @@ code {
     monospace;
 }
 
-a {
+/* a {
   text-decoration: none;
   color: black;
-}
+} */
 
 * {
   box-sizing: border-box;

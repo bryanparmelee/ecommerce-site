@@ -23,8 +23,7 @@ const App = () => {
         <Route path='sign-up' element={<SignUp />} />
         <Route path='checkout' element={<Checkout />} />
         <Route path="*" element={<NoMatch />} />   
-      </Route>
-      
+      </Route>     
     </Routes>
   );
 };

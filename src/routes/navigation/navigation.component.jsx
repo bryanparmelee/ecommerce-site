@@ -8,10 +8,6 @@ import AccountDropdown from "../../components/account-dropdown/account-dropdown.
 import { UserContext } from "../../contexts/user.context";
 import { CartContext } from "../../contexts/cart.context";
 
-import './navigation.styles.scss';
-import '../../components/cart-dropdown/cart-dropdown.styles.scss';
-
-
 const Navigation = () => {
     const  {isAccountOpen, setIsAccountOpen } = useContext(UserContext);
 
@@ -20,21 +16,21 @@ const Navigation = () => {
 
     return (
       <>
-        <div className="navigation">
+        <div className="w-full h-10 px-20 flex justify-between items-center bg-slate-600">
             <Link className="logo-link" to='/'>
                 LOGO
             </Link>
-            <div className="nav-links-container">
-                <Link className="nav-link" to='/shop'>
+            <div className="w-52 flex justify-evenly items-center">
+                <Link className="font-semibold cursor-pointer" to='/shop'>
                     SHOP
                 </Link>
                 <div 
-                    className="nav-link"
+                    className="font-semibold cursor-pointer"
                     onClick={toggleAccountOpen} 
                 >
                     ACCOUNT
                 </div>
-                <div className="nav-link">
+                <div className="font-semibold cursor-pointer">
                 <CartIcon />
                 </div>
             </div>

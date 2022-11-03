@@ -10,8 +10,8 @@ const CartSuccess = ({ product, isAddedToCart, setIsAddedToCart }) => {
     const closeCartSuccess = () => setIsAddedToCart(!isAddedToCart);
 
     return (
-        <div className='cart-success-container'>
-            <div className='success-card'>
+        <div className='cart-success-container' onClick={closeCartSuccess}>
+            <div className='success-card' onClick={(e) => e.stopPropagation()}>
                 <div className='success-item'>
                     <h2>Successfully added to cart!</h2>
                     <h3>{title}</h3>
@@ -25,8 +25,7 @@ const CartSuccess = ({ product, isAddedToCart, setIsAddedToCart }) => {
                 </div>
                 <span className='close-symbol' onClick={closeCartSuccess}>&#10005;</span>
             </div>
-         
-        </div>
+        </div>          
     )
 }
 

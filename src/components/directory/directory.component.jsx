@@ -1,9 +1,8 @@
 import CategoryItem from '../category-item/category-item.component';
-import './directory.styles.scss';
 
 const Directory = ({ categories }) => {
     return (
-        <div className='directory-container'>
+        <div className='w-full h-screen grid grid-cols-2 justify-items-center items-center gap-4 bg-red-200'>
           {categories.map((category) => (
             <CategoryItem key={category.id} categoryItem={category} />
           ))}
