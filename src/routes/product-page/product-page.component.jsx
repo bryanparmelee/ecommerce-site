@@ -12,10 +12,11 @@ const ProductPage = () => {
     const { products } = useContext(ProductsContext);
     const { addItemToCart } = useContext(CartContext);
 
-    const selectedProduct = products.filter((item) => (item.id == productId));
+    const selectedProduct = products.filter((item) => (item.id === Number(productId)));
     const [product] = selectedProduct;
 
-    const { title, description, image, price } = product;
+    const { title, description, image, price, rating } = product;
+    const rate = rating;
 
     const [isAddedToCart, setIsAddedToCart] = useState(false);
 
@@ -26,19 +27,25 @@ const ProductPage = () => {
 
     return (
         <>
-            <div className="product-page-container">
-                <h2>{productId}</h2>
-                <h2>{title}</h2>
-                <img src={image} alt={`${title}`} />
-                <h3>{'$' + price}</h3>
-                <span>{description}</span>
-                <Button onClick={addProductToCart}>Add to cart</Button>
-                {isAddedToCart && 
-                    <CartSuccess 
-                        product={product} 
-                        isAddedToCart={isAddedToCart} 
-                        setIsAddedToCart={setIsAddedToCart}                                         
-                        />}
+            <div className="w-full h-96 bg-orange-500 flex justify-between items-center">
+                <img
+                    className="w-1/2 p-10" 
+                    src={image} 
+                    alt={`${title}`} 
+
+                />
+                <div className="w-1/2 p-10 flex flex-col justify-between">
+                    <h2 className="font-black text-3xl">{title}</h2>               
+                    <h3 className="font-bold text-lg text-red-700">{'$' + price}</h3>
+                    <span className="font-light">{description}</span>
+                    <Button onClick={addProductToCart}>Add to cart</Button>
+                    {isAddedToCart && 
+                        <CartSuccess 
+                            product={product} 
+                            isAddedToCart={isAddedToCart} 
+                            setIsAddedToCart={setIsAddedToCart}             
+                            />}
+                </div>
             </div>
             
         </>
