@@ -4,8 +4,6 @@ import { CartContext } from "../../contexts/cart.context";
 import { Link, useNavigate } from "react-router-dom";
 import Button from "../button/button.component";
 
-// import './account-dropdown.styles.scss';
-
 const AccountDropdown = () => {
     const { currentUser, setCurrentUser, isAccountOpen, setIsAccountOpen } = useContext(UserContext);
     const navigate = useNavigate();
