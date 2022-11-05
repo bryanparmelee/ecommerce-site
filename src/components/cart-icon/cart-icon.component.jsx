@@ -3,7 +3,7 @@ import { ReactComponent as ShoppingCartIcon } from '../../assets/shopping-bag.sv
 import { useContext } from 'react'; 
 import { CartContext } from '../../contexts/cart.context';
 
-import './cart-icon.styles.scss';
+// import './cart-icon.styles.scss';
 import { useNavigate } from 'react-router-dom';
 
 const CartIcon = () => {
@@ -14,9 +14,9 @@ const CartIcon = () => {
         navigate('checkout');
         
     return (
-        <div className='cart-icon-container' onClick={gotoCheckoutHandler}>
-            <ShoppingCartIcon className='cart-icon'/>
-            <span className='cart-count'>{cartCount}</span>
+        <div className='w-6 h-full relative flex items-center justify-center cursor-pointer bg-red-400' onClick={gotoCheckoutHandler}>
+            <ShoppingCartIcon className='w-6 h-6'/>
+            <span className='absolute text-xs font-bold bottom-0.5'>{cartCount}</span>
         </div>
     )
  }

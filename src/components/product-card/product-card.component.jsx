@@ -15,7 +15,7 @@ const ProductCard = ({ product }) => {
     // const addProductToCart = () => addItemToCart(product);
 
     return (
-        <div className="w-72 h-72 flex flex-col justify-between rounded-lg">
+        <div className="w-72 h-72 pb-6 flex flex-col justify-between rounded-lg">
             <img 
                 class="w-full h-48 object-cover"
                 src={image}
