@@ -23,7 +23,7 @@ const AccountDropdown = () => {
     }
 
     return (
-        <div className="absolute w-60 h-60 flex flex-col p-5 border-solid border-2 bg-white top-12 right-12 z-5">
+        <div className="absolute w-60 h-60 flex flex-col p-5 border-solid border-2 bg-white top-12 right-12 z-50">
            {!currentUser ?
                 ( <div className="h-full flex flex-col justify-evenly">
                    <div>

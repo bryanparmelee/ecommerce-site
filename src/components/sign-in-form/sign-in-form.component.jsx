@@ -8,8 +8,9 @@ import {
 
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
+import { useNavigate } from "react-router-dom";
 
-import './sign-in-form.styles.scss';
+// import './sign-in-form.styles.scss';
 
 const defaultFormFields = {
     email: '',
@@ -18,6 +19,12 @@ const defaultFormFields = {
 
 const SignInForm = () => {
     const [formFields, setFormFields] = useState(defaultFormFields);
+
+    const naviagte = useNavigate();
+    const gotoSignUpHandler = () => {
+        naviagte('/sign-up');
+    }
+
     const { email, password } = formFields;
 
     const resetFormFields = () => {
@@ -60,12 +67,12 @@ const SignInForm = () => {
     }
 
     return (
-        <div className="sign-in-form-container">
-            <h1>Sign in with email and password</h1>
+        <div className="w-72 sm:w-96 h-5/6 p-6 bg-white flex flex-col items-center justify-center rounded-lg border border-black">
+            <h1 className="text-2xl font-bold">Sign in with email and password</h1>
             <form
-                className="sign-in-form" 
+                className="w-full h-full flex flex-col justify-evenly" 
                 onSubmit={handleSubmit}>        
-                <>
+               
                     <FormInput
                         label="Email"
                         type="email" 
@@ -84,10 +91,17 @@ const SignInForm = () => {
                         value={password}
                     />                
                     <Button type="submit">Sign In</Button>
-                </>
-                <span>OR</span>
-                <Button onClick={signInWithGoogle}>Sign In With Google</Button>
+         
+                <div className="w-full">
+                    <p className="w-full text-sm text-center font-light">——— or ———</p>
+                    <Button onClick={signInWithGoogle}>
+                        Sign In With Google</Button>
+                </div>
             </form>
+            <div className="w-full">
+                <span>Don't have an account?</span>
+                <Button type="button" onClick={gotoSignUpHandler}>Create an account</Button>
+            </div>
         </div>
     )
 }
