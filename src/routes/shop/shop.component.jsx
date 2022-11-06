@@ -10,13 +10,11 @@ const Shop = () => {
     return (
         <>
         <div className="w-full p-5 flex flex-wrap justify-center items-center gap-4 bg-zinc-200">
-            {products.map((product) => (
-              <Link to={`${product.id}`}>
+            {products.map((product) => (            
                 <ProductCard
                         key={product.id}
-                        product={product}                                            
-                    />
-              </Link>   
+                        product={product}                                           
+                />    
             ))}
         </div>
         <Outlet />

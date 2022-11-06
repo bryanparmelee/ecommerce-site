@@ -10,14 +10,19 @@ import { useNavigate } from 'react-router-dom';
 const ProductCard = ({ product }) => {
     const { title, price, image, id } = product;
     const { addItemToCart } = useContext(CartContext);
-
+    const navigate = useNavigate();
+    const gotoProductHandler = () => 
+        navigate(`/shop/${id}`);
 
     // const addProductToCart = () => addItemToCart(product);
 
     return (
-        <div className="w-72 h-72 pb-6 flex flex-col justify-between rounded-lg">
+        <div 
+            className="w-72 h-72 pb-6 flex flex-col justify-between rounded-lg"
+            onClick={gotoProductHandler}    
+        >
             <img 
-                class="w-full h-48 object-cover"
+                className="w-full h-48 object-cover"
                 src={image}
                 alt={`${title}`}
             />

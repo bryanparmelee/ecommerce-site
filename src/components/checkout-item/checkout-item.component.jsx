@@ -1,37 +1,58 @@
 
 import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { CartContext } from '../../contexts/cart.context';
 
-import './checkout-item.styles.scss';
+import TrashIcon from '../trash-icon/trash-icon.component';
+
+// import './checkout-item.styles.scss';
 
 const CheckoutItem = ({cartItem}) => {
-    const { title, image, price, quantity} = cartItem;
+    const { title, image, price, quantity, id} = cartItem;
 
     const { clearItemFromCart, addItemToCart, removeItemFromCart } = useContext(CartContext);
+
+    const navigate = useNavigate();
+    const gotoProductPage = () =>
+        navigate(`/shop/${id}`)
 
     const clearItemHandler = () => clearItemFromCart(cartItem); 
     const addItemHandler = () => addItemToCart(cartItem);
     const removeItemHandler = () => removeItemFromCart(cartItem);
 
     return (
-        <div className='checkout-item-container'>
-            <div className='checkout-image'>
-                <img src={image} alt={`${title}`} />
+        <div className='w-full h-32 px-2 flex items-center border-b border-slate-500 relative'>
+            <div className='w-1/3'>
+                <img 
+                    className='w-full max-h-32 object-contain p-2'
+                    onClick={gotoProductPage}
+                    src={image} 
+                    alt={`${title}`} 
+                        
+                    />
             </div>
-            <span className='name'>{title}</span>
-            <span className='quantity'>
-                <div className='arrow' onClick={removeItemHandler}>
-                    &#10094;
-                </div>
-                <div className='value'>
-                    {quantity}
-                </div>
-                <div className='arrow' onClick={addItemHandler}>
-                    &#10095;
-                </div>
-            </span>
-            <span className='price'>{price}</span>
-            <span className='remove-button' onClick={clearItemHandler}>&#10005;</span>
+          
+            <span className='w-1/3 p-1 ml-4 text-ellipsis text-sm font-medium'>{title}</span>
+        
+            <div className='w-1/3 p-1 flex flex-col items-end font-light text-sm'>
+                <span className='text-xl font-bold text-red-500'>{`$${price.toFixed(2)}`}</span>
+                <span className='p-0.5 flex'>
+                    <div className='text-lg font-bold' onClick={removeItemHandler}>
+                        &#10094;
+                    </div>
+                    <div className='text-lg font-bold mx-3'>
+                        {quantity}
+                    </div>
+                    <div className='text-lg font-bold' onClick={addItemHandler}>
+                        &#10095;
+                    </div>
+                </span>
+               
+            </div>    
+            <span 
+                className='text-2xl font-bold absolute top-0 right-1 cursor-pointer'
+                onClick={clearItemHandler}
+            >&#10005;</span>                
         </div>       
     )
 }
