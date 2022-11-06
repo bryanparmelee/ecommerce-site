@@ -7,6 +7,7 @@ import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
 
 import './sign-up-form.styles.scss';
+import { useNavigate } from "react-router-dom";
 
 const defaultFormFields = {
     displayName: '',
@@ -18,6 +19,11 @@ const defaultFormFields = {
 const SignUpForm = () => {
     const [formFields, setFormFields] = useState(defaultFormFields);
     const { displayName, email, password, confirmPassword } = formFields;
+
+    const navigate = useNavigate();
+    const gotoSignInHandler = () => {
+        navigate('/sign-in');
+    }
 
     const resetFormFields = () => {
         setFormFields(defaultFormFields);
@@ -56,9 +62,12 @@ const SignUpForm = () => {
     }
 
     return (
-        <div>
-            <h1>Sign up with email and password</h1>
-            <form onSubmit={handleSubmit}>        
+        <div className="w-72 sm:w-96 h-5/6 p-6 bg-white flex flex-col items-center justify-center rounded-lg border border-black">
+            <h1 className="text-2xl font-bold">Sign up with email and password</h1>
+            <form
+                className="w-full h-full flex flex-col justify-evenly" 
+                onSubmit={handleSubmit}>
+
                <FormInput
                     label="Display Name"
                     type="text" 
@@ -97,6 +106,10 @@ const SignUpForm = () => {
                 <Button type="submit">Sign Up</Button>
 
             </form>
+            <div className="w-full">
+                <p>Already have an account?</p>
+                <Button onClick={gotoSignInHandler}>SIGN IN</Button>
+            </div>
         </div>
     )
 }
