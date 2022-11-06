@@ -26,7 +26,14 @@ const ProductPage = () => {
 
     return (
         <>
-            <div className="w-full h-auto md:h-96 p-4 flex flex-col sm:flex-row justify-between items-center">
+           {isAddedToCart && 
+                        <CartSuccess 
+                            product={product} 
+                            isAddedToCart={isAddedToCart} 
+                            setIsAddedToCart={setIsAddedToCart}             
+                        />}
+            <div className="w-full h-auto md:h-96 p-4 flex flex-col sm:flex-row justify-between items-center relative">
+             
                 <img
                     className="w-5/6 md:w-1/2 max-h-72 p-6 object-contain " 
                     src={image} 
@@ -41,13 +48,8 @@ const ProductPage = () => {
                     <span className="text-sm font-light">{description}</span>
                     <div className="mt-3 flex justify-center items-center">
                     <Button onClick={addProductToCart}>Add to cart</Button>
-                    {isAddedToCart && 
-                        <CartSuccess 
-                            product={product} 
-                            isAddedToCart={isAddedToCart} 
-                            setIsAddedToCart={setIsAddedToCart}             
-                            />}
-                            </div>
+                   
+                    </div>
                 </div>
             </div>
             

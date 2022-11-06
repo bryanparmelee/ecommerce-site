@@ -16,7 +16,7 @@ const Navigation = () => {
 
     return (
       <>
-        <div className="w-full h-12 flex px-4 justify-between items-center bg-slate-600">
+        <div className="w-full h-12 flex px-4 justify-between items-center bg-slate-600 z-10">
             <Link className="logo-link" to='/'>
                 LOGO
             </Link>

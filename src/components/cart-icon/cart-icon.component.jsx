@@ -3,7 +3,6 @@ import { ReactComponent as ShoppingCartIcon } from '../../assets/shopping-bag.sv
 import { useContext } from 'react'; 
 import { CartContext } from '../../contexts/cart.context';
 
-// import './cart-icon.styles.scss';
 import { useNavigate } from 'react-router-dom';
 
 const CartIcon = () => {
