@@ -3,11 +3,7 @@ import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CartContext } from '../../contexts/cart.context';
 
-import TrashIcon from '../trash-icon/trash-icon.component';
-
-// import './checkout-item.styles.scss';
-
-const CheckoutItem = ({cartItem}) => {
+const CartItem = ({cartItem}) => {
     const { title, image, price, quantity, id} = cartItem;
 
     const { clearItemFromCart, addItemToCart, removeItemFromCart } = useContext(CartContext);
@@ -32,7 +28,7 @@ const CheckoutItem = ({cartItem}) => {
                     />
             </div>
           
-            <span className='w-1/3 p-1 ml-4 text-ellipsis text-sm font-medium'>{title}</span>
+            <span className='w-1/3 p-1 ml-4 text-sm font-medium'>{title}</span>
         
             <div className='w-1/3 p-1 flex flex-col items-end font-light text-sm'>
                 <span className='text-xl font-bold text-red-500'>{`$${price.toFixed(2)}`}</span>
@@ -57,4 +53,4 @@ const CheckoutItem = ({cartItem}) => {
     )
 }
 
-export default CheckoutItem;
+export default CartItem;

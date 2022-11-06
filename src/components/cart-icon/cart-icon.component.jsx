@@ -10,7 +10,7 @@ const CartIcon = () => {
 
     const navigate = useNavigate();
     const gotoCheckoutHandler = () => 
-        navigate('checkout');
+        navigate('cart');
         
     return (
         <div className='w-6 h-full relative flex items-center justify-center cursor-pointer bg-red-400' onClick={gotoCheckoutHandler}>

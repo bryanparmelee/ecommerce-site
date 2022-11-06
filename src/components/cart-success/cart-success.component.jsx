@@ -13,7 +13,7 @@ const CartSuccess = ({ product, isAddedToCart, setIsAddedToCart }) => {
     const closeCartSuccess = () => setIsAddedToCart(!isAddedToCart);
 
     const navigate = useNavigate();
-    const gotoCartHandler = () => navigate('');
+    const gotoCartHandler = () => navigate('/cart');
 
     return (
         <div className='w-screen h-screen absolute inset-o bg-black/75 flex justify-center items-center z-[100]' onClick={closeCartSuccess}>
