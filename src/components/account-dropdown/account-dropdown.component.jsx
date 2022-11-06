@@ -40,7 +40,7 @@ const AccountDropdown = () => {
                  </div>
                 ) : (
                     <div className="h-full flex flex-col justify-between">
-                        <h2>Hello, {currentUser.displayName}</h2>
+                        <h2>{`Hello, ${currentUser.displayName}`}</h2>
                         <Button onClick={signOut}>SIGN OUT</Button>
                     </div>
                 )
