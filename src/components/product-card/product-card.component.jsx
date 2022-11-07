@@ -7,12 +7,12 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, category }) => {
     const { title, price, image, id } = product;
     const { addItemToCart } = useContext(CartContext);
     const navigate = useNavigate();
     const gotoProductHandler = () => 
-        navigate(`/shop/${id}`);
+        navigate(`/shop/${category}/${id}`);
 
     // const addProductToCart = () => addItemToCart(product);
 

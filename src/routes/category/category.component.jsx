@@ -1,28 +1,16 @@
-import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
-import { CategoriesContext } from "../../contexts/categories.context";
+import CategoryPage from "../category-page/category-page.component";
 
-import ProductCard from "../../components/product-card/product-card.component";
-
+import ProductPage from "../product-page/product-page.component";
 
 const Category = () => {
-    const { category } = useParams();
-    const { categoriesMap } = useContext(CategoriesContext);
-    const [products, setProducts] = useState(categoriesMap[category]);
-
-    useEffect(() => {
-        setProducts(categoriesMap[category]);
-    }, [category, categoriesMap])
-
-    return (
-        <div className="flex flex-wrap gap-4">
-            {products && 
-                products.map((product) => (
-                    <ProductCard key={product.id} product={product} />
-             ))}
-        </div>
-    )
+  return (
+    <Routes>
+        <Route index element={<CategoryPage /> } />
+        <Route path=':productId' element={<ProductPage /> } />
+    </Routes>
+  )
 }
 
 export default Category;

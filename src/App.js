@@ -6,7 +6,7 @@ import Shop from './routes/shop/shop.component';
 import SignIn from './routes/sign-in/sign-in.component';
 import SignUp from './routes/sign-up/sign-up.component';
 import Cart from './routes/cart/cart.component';
-import ProductPage from './routes/product-page/product-page.component';
+
 import NoMatch from './routes/no-match/no-match.component';
 
 const App = () => {
