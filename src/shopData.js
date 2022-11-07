@@ -1,18 +1,7 @@
-export const SHOP_DATA = [
+const SHOP_DATA = [
     {
-        category: "men's clothing",
-        items: [
-            {
-                "id": 1,
-                "title": "Fjallraven - Foldsack No. 1 Backpack",
-                "price": 109.99,
-                "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",     
-                "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-                "rating": {
-                    "rate": 3.9,
-                    "count": 120
-                }
-            }, 
+        category: "mens",
+        items: [         
             {
                 "id": 1,
                 "title": "Fjallraven - Foldsack No. 1 Backpack",
@@ -181,7 +170,7 @@ export const SHOP_DATA = [
         ],
     },
     {
-        category: "women's clothing",
+        category: "womens",
         items: [
             {
                 "id": 15,
@@ -254,28 +243,4 @@ export const SHOP_DATA = [
 ];
 
 
-export const CATEGORY_DATA = [
-    {
-        "id": 20,
-        "category": "women's clothing",
-        "image": "https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg",
-    },
-    {
-        "id": 14,
-        "category": "electronics",
-        "image": "https://fakestoreapi.com/img/81Zt42ioCgL._AC_SX679_.jpg",
-    },
-    {
-        "id": 7,        
-        "category": "jewelery",
-        "image": "https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg",
-    },
-    {
-        "id": 4,
-        "title": "Mens Casual Slim Fit",
-        "price": 15.99,
-        "description": "The color could be slightly different between on the screen and in practice. / Please note that body builds vary by person, therefore, detailed size information should be reviewed below on the product description.",
-        "category": "men's clothing",
-        "image": "https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg",
-    }
-];
+export default SHOP_DATA;

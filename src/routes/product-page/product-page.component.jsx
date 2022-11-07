@@ -1,19 +1,18 @@
 import { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
-import { ProductsContext } from "../../contexts/products.context";
+import { CategoriesContext } from "../../contexts/categories.context";
 import { CartContext } from "../../contexts/cart.context";
 import Button from "../../components/button/button.component";
 import CartSuccess from "../../components/cart-success/cart-success.component";
 
 
 
-const ProductPage = () => {
+const ProductPage = ({ product }) => {
     const { productId } = useParams();
-    const { products } = useContext(ProductsContext);
     const { addItemToCart } = useContext(CartContext);
 
-    const selectedProduct = products.filter((item) => (item.id === Number(productId)));
-    const [product] = selectedProduct;
+    // const selectedProduct = products.filter((item) => (item.id === Number(productId)));
+    // const [product] = selectedProduct;
 
     const { title, description, image, price } = product;
 

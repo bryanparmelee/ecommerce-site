@@ -1,6 +1,10 @@
 import CategoryItem from '../category-item/category-item.component';
 
-const Directory = ({ categories }) => {
+import CATEGORY_DATA from '../../categoryData';
+
+const Directory = () => {
+  const categories = CATEGORY_DATA;
+
     return (
         <div className='w-full h-full p-6 flex flex-wrap items-center justify-center gap-4 bg-white'>
           {categories.map((category) => (

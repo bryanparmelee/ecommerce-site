@@ -1,7 +1,17 @@
+import { useNavigate } from "react-router-dom";
+
+
 const CategoryItem = ({ categoryItem }) => {
-    const { category, image } = categoryItem;
+    const { category, image, route } = categoryItem;
+    const navigate = useNavigate();
+    const onNavigateHandler = () => 
+        navigate(route);
+
     return (
-        <div className='group w-80 h-52 flex flex-col justify-between items-center relative'>
+        <div 
+            className='group w-80 h-52 flex flex-col justify-between items-center relative'
+            onClick={onNavigateHandler}
+        >
             
             <div className="w-80 h-52 px-1 overflow-hidden border-2 border-black">
             <img
