@@ -16,11 +16,11 @@ const Navigation = () => {
 
     return (
       <>
-        <div className="w-full h-12 flex px-4 justify-between items-center bg-slate-600 z-10">
-            <Link className="logo-link" to='/'>
+        <div className="w-full h-12 flex px-4 justify-between items-center bg-black z-10">
+            <Link className="text-white" to='/'>
                 LOGO
             </Link>
-            <div className="w-4/6 h-full sm:w-72 flex justify-between sm:justify-between items-center bg-purple-300">
+            <div className="w-4/6 h-full sm:w-72 flex justify-between sm:justify-between items-center text-white">
                 <Link className="font-semibold cursor-pointer" to='/shop'>
                     SHOP
                 </Link>

@@ -13,8 +13,8 @@ const CartIcon = () => {
         navigate('cart');
         
     return (
-        <div className='w-6 h-full relative flex items-center justify-center cursor-pointer bg-red-400' onClick={gotoCheckoutHandler}>
-            <ShoppingCartIcon className='w-6 h-6'/>
+        <div className='w-6 h-full relative flex items-center justify-center cursor-pointer' onClick={gotoCheckoutHandler}>
+            <ShoppingCartIcon className='w-6 h-6' color='white' />
             <span className='absolute text-xs font-bold bottom-0.5'>{cartCount}</span>
         </div>
     )

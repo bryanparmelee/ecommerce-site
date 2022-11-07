@@ -27,14 +27,14 @@ const CartSuccess = ({ product, isAddedToCart, setIsAddedToCart }) => {
                         alt={`${title}`} />
                     <div className='flex flex-col justify-center'>
                         <h3 className='text-sm font-light'>{title}</h3>
-                        <span className='text-red-500 text-lg font-bold'>{`$${price}`}</span>
+                        <span className='text-red-500 text-lg font-bold'>{`$${price.toFixed(2)}`}</span>
                     </div>                   
                 </div>
 
                 <div className='w-full'>
                     <div className='flex flex-col'>
                         <span className='text-sm font-light'>Total: ({cartCount > 1 ? `${cartCount} items` : `${cartCount} item`})</span>
-                        <span className='text-md font-bold'>{`$${cartTotal}`}</span>
+                        <span className='text-md font-bold'>{`$${cartTotal.toFixed(2)}`}</span>
                         <Button onClick={gotoCartHandler}>VIEW CART</Button>
                     </div>
                 </div>
