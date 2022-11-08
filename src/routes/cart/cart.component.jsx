@@ -32,7 +32,6 @@ const Cart = () => {
                 {cartTotal > 0 && `Total: $${cartTotal.toFixed(2)}`}            
             </div>
             <Button
-                buttonType={BUTTON_TYPE_CLASSES.blue}
                 onClick={goToCheckout}
             >
                 Go to Checkout

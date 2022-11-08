@@ -8,10 +8,6 @@ const CartItem = ({cartItem}) => {
 
     const { clearItemFromCart, addItemToCart, removeItemFromCart } = useContext(CartContext);
 
-    const navigate = useNavigate();
-    const gotoProductPage = () =>
-        navigate(`/shop/${id}`)
-
     const clearItemHandler = () => clearItemFromCart(cartItem); 
     const addItemHandler = () => addItemToCart(cartItem);
     const removeItemHandler = () => removeItemFromCart(cartItem);
@@ -21,7 +17,6 @@ const CartItem = ({cartItem}) => {
             <div className='w-1/3'>
                 <img 
                     className='w-full max-h-32 object-contain p-2'
-                    onClick={gotoProductPage}
                     src={image} 
                     alt={`${title}`} 
                         

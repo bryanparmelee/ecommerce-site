@@ -10,6 +10,8 @@ import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
 import { useNavigate } from "react-router-dom";
 
+import { BUTTON_TYPE_CLASSES } from "../button/button.component";
+
 // import './sign-in-form.styles.scss';
 
 const defaultFormFields = {
@@ -94,8 +96,10 @@ const SignInForm = () => {
          
                 <div className="w-full">
                     <p className="w-full text-sm text-center font-light">——— or ———</p>
-                    <Button onClick={signInWithGoogle}>
-                        Sign In With Google</Button>
+                    <Button 
+                        buttonType={BUTTON_TYPE_CLASSES.blue}
+                        onClick={signInWithGoogle}
+                    >Sign In With Google</Button>
                 </div>
             </form>
             <div className="w-full">

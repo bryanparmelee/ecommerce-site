@@ -1,16 +1,20 @@
+import { Fragment } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { useContext, useState } from "react";
 import { CartContext } from "../../contexts/cart.context";
 import { UserContext } from "../../contexts/user.context";
 
 import Button from "../button/button.component";
+import OrderConfirmation from "../order-confirmation/order-confirmation.component";
 
 const PaymentForm = () => {
     const stripe = useStripe();
     const elements = useElements();
-    const { cartTotal } = useContext(CartContext);
+    const { cartTotal, cartItems } = useContext(CartContext);
     const { currentUser } = useContext(UserContext);
     const [isProcessingPayment, setIsProcessingPayment] = useState(false);
+    const [paymentSuccess, setPaymentSuccess] = useState(false);
+    const closePaymentSuccess = () => setPaymentSuccess(false);
 
     const paymentHandler = async (e) => {
         e.preventDefault();
@@ -26,7 +30,7 @@ const PaymentForm = () => {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ amount: cartTotal * 100 })
+            body: JSON.stringify({ amount: cartTotal.toFixed(2) * 100 })
         }).then((res) => {
             return res.json()
         });
@@ -48,24 +52,46 @@ const PaymentForm = () => {
             alert(paymentResult.error);
         } else {
             if (paymentResult.paymentIntent.status === 'succeeded') {
-                alert('Payment Successful');
+                setPaymentSuccess(true);
             }
         }
     };
 
     return (
-        <div className="w-full h-80 flex flex-col items-center justify-center">
-            <h2>Total: {`$${cartTotal}`}</h2>
-            <form className="w-full" onSubmit={paymentHandler}>
-                <h2>Pay with card:</h2>
-                <CardElement />
-                <Button
-                    isLoading={isProcessingPayment}
-                >
-                    Pay Now
-                </Button>
-            </form>
-        </div>
+        <>
+            {paymentSuccess && <OrderConfirmation closePaymentSuccess={closePaymentSuccess} />}
+            <div className="w-full h-80 flex flex-wrap items-center justify-evenly">
+
+                <div className="w-80 flex flex-col justify-evenly p-2">
+                    <h1 className="text-lg font-bold mb-2 border-b border-black/50">ORDER SUMMARY</h1>
+                
+                    {cartItems.map((item) => (
+                        <div key={item.id} className="flex justify-between">
+                            <span className="w-3/4 text-xs mb-2">{item.title}</span>
+                            <span className="text-xs font-bold">{item.price}</span>
+                        </div>
+                    ))}
+        
+                    <div className="mt-4 text-md font-bold flex justify-between border-b border-black/50 sm:border-none">
+                    <span>TOTAL</span>
+                    <span>{`$${cartTotal.toFixed(2)}`}</span>
+                    </div>
+                </div> 
+
+                
+                <form className="w-80 p-2" onSubmit={paymentHandler}>
+                    <h2 className="text-sm font-bold mb-1">PAY WITH CARD</h2>
+                    <CardElement 
+                        className="mb-4"
+                    />
+                    <Button
+                        isLoading={isProcessingPayment}
+                    >
+                        Pay Now
+                    </Button>
+                </form>
+            </div>
+        </>
     )
 }
 
