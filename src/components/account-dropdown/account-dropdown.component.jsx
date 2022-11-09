@@ -6,16 +6,10 @@ import Button from "../button/button.component";
 
 const AccountDropdown = () => {
     const ref = useRef();
-
-    const { currentUser, setCurrentUser, isAccountOpen, setIsAccountOpen } = useContext(UserContext);
-
     const navigate = useNavigate();
 
-    const signOut = () => {
-        setCurrentUser(null);
-        setIsAccountOpen(false);
-    };
-
+    const { currentUser, setCurrentUser, isAccountOpen, setIsAccountOpen } = useContext(UserContext);
+ 
     const gotoSignInHandler = () => {
         setIsAccountOpen(false);
         navigate('/sign-in');
@@ -36,11 +30,11 @@ const AccountDropdown = () => {
         return () => {
             document.removeEventListener("mousedown", checkIfClickedOutsideAccount);
         }
-    }, [isAccountOpen])    
+    }, [isAccountOpen, setIsAccountOpen])    
 
     return (
         <div ref={ref} className="absolute w-60 h-auto flex flex-col p-5 border-solid border-2 bg-white top-16 right-7 z-50">
-           {!currentUser ?
+           {!currentUser &&
                 ( <div className="h-full flex flex-col justify-evenly">
                    <div className="mb-4">
                         <span className="text-sm pb-1">Already have an account?</span>
@@ -54,12 +48,7 @@ const AccountDropdown = () => {
                         <Button onClick={gotoSignUpHandler}>SIGN UP</Button>
                     </div>
                  </div>
-                ) : (
-                    <div className="h-24 flex flex-col justify-between">
-                        <h2>{`Hello, ${currentUser.displayName}`}</h2>
-                        <Button onClick={signOut}>SIGN OUT</Button>
-                    </div>
-                )
+                ) 
            }
         </div>
     )

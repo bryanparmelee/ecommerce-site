@@ -9,12 +9,11 @@ import CartIcon from "../../components/cart-icon/cart-icon.component";
 import AccountDropdown from "../../components/account-dropdown/account-dropdown.component";
 
 import { UserContext } from "../../contexts/user.context";
-import { CartContext } from "../../contexts/cart.context";
 
 const Navigation = () => {
     const ref = useRef();
 
-    const  {isAccountOpen, setIsAccountOpen } = useContext(UserContext);
+    const  {isAccountOpen, setIsAccountOpen, currentUser, setCurrentUser } = useContext(UserContext);
     const [isNavBarOpen, setIsNavBarOpen] = useState(false);
 
     const toggleNavBar = () => {
@@ -34,6 +33,12 @@ const Navigation = () => {
         setIsNavBarOpen(false);
         setIsAccountOpen(true);
     }
+
+    const signOut = () => {
+        setCurrentUser(null);
+        setIsAccountOpen(false);
+        navigate('/')    
+    };
     
 
     const navStyles = "hidden sm:flex w-4/6 h-full sm:w-72 justify-between sm:justify-between items-center relative text-cyan-300";
@@ -73,7 +78,10 @@ const Navigation = () => {
                         className="font-semibold cursor-pointer"
                         onClick={toggleAccountOpen} 
                     >
-                        ACCOUNT
+                        {!currentUser ? 
+                            (<span onClick={toggleAccountOpen}>SIGN IN</span>) :
+                             (<span onClick={signOut}>SIGN OUT</span>)
+                        }
                     </div>
                 </div>
             <div className="font-semibold cursor-pointer">

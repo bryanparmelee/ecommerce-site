@@ -13,7 +13,7 @@ const CategoryItem = ({ categoryItem }) => {
             onClick={onNavigateHandler}
         >
             
-            <div className="w-full h-52 overflow-hidden border-2 hover:border-cyan-300">
+            <div className="w-full h-52 overflow-hidden border-2 group-hover:border-cyan-300">
             <img
                 className="group-hover:scale-125 duration-1000 ease-in w-full h-52 object-cover" 
                 src={image} 

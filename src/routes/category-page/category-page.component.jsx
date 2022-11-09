@@ -16,9 +16,9 @@ const CategoryPage = () => {
     }, [category, categoriesMap])
 
     return (
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center py-10">
             <h2 className="text-3xl font-bold mb-8">{category.toUpperCase()}</h2>
-            <div className="flex flex-wrap gap-4 justify-center">
+            <div className="flex flex-wrap gap-8 justify-center">
                 {products && 
                     products.map((product) => (
                         <ProductCard key={product.id} product={product} category={category} />

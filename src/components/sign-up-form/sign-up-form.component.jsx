@@ -1,12 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 
-import { createAuthUserWithEmailAndPassword, createUserDocFromAuth } from "../../utils/firebase/firebase.utils";
+import { 
+    createAuthUserWithEmailAndPassword, 
+    createUserDocFromAuth 
+} from "../../utils/firebase/firebase.utils";
 
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
 
-import './sign-up-form.styles.scss';
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../contexts/user.context";
 
 const defaultFormFields = {
     displayName: '',
@@ -18,6 +21,7 @@ const defaultFormFields = {
 const SignUpForm = () => {
     const [formFields, setFormFields] = useState(defaultFormFields);
     const { displayName, email, password, confirmPassword } = formFields;
+    const { setCurrentUser } = useContext(UserContext);
 
     const navigate = useNavigate();
     const gotoSignInHandler = () =>
@@ -44,7 +48,7 @@ const SignUpForm = () => {
 
             await createUserDocFromAuth(user, { displayName });
             resetFormFields();
-            console.log(user)
+            setCurrentUser(user);
             gotoShop();
            
         } catch (error) {
@@ -65,8 +69,8 @@ const SignUpForm = () => {
     }
 
     return (
-        <div className="w-72 sm:w-96 h-5/6 p-6 bg-white flex flex-col items-center justify-center rounded-lg border border-black">
-            <h1 className="text-2xl font-bold">Sign up with email and password</h1>
+        <div className="w-64 sm:w-96 h-5/6 p-6 bg-white flex flex-col items-center justify-center rounded-lg shadow-lg">
+            <h1 className="text-xl font-bold">Sign up with email and password</h1>
             <form
                 className="w-full h-full flex flex-col justify-evenly" 
                 onSubmit={handleSubmit}>
@@ -110,7 +114,7 @@ const SignUpForm = () => {
 
             </form>
             <div className="w-full">
-                <p>Already have an account?</p>
+                <span className="text-sm pb-2">Already have an account?</span>
                 <Button onClick={gotoSignInHandler}>SIGN IN</Button>
             </div>
         </div>

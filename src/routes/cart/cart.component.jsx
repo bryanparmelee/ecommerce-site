@@ -15,12 +15,22 @@ const Cart = () => {
     const goToCheckout = () => navigate('/checkout')
 
     return (
-        <div className='w-96 sm:w-[600px] h-5/6 flex flex-col items-center mt-10 mx-auto'>
-            <h1 className='w-full text-3xl p-3 mb-10 font-bold'>YOUR CART</h1>            
+        <div className='w-full p-4 sm:w-[600px] h-full flex flex-col items-center justify-between'>
+            <h1 className='w-full text-3xl p-3 mb-4 font-bold'>YOUR CART</h1>            
             <div className='w-full p-2'>
                 {cartItems.length ?
-                    cartItems.map((cartItem) => (                                       
-                        <CartItem key={cartItem.id} cartItem={cartItem} />                                          
+                    cartItems.map((cartItem) => (    
+                        <>                                  
+                            <CartItem key={cartItem.id} cartItem={cartItem} />      
+                            <div className='w-full text-xl sm:text-3xl font-bold text-right pb-8'>
+                            {cartTotal > 0 && `Total: $${cartTotal.toFixed(2)}`}            
+                            </div>
+                            <Button
+                                onClick={goToCheckout}
+                            >
+                                Go to Checkout
+                            </Button>   
+                        </>                                  
                     )) : (
                     <div className='w-full h-24 flex flex-col justify-between'>
                         <span className='text-md'>Your cart is empty</span>
@@ -28,14 +38,7 @@ const Cart = () => {
                     </div>
                 )}
             </div>
-            <div className='w-full p-4 text-3xl font-bold text-right'>
-                {cartTotal > 0 && `Total: $${cartTotal.toFixed(2)}`}            
-            </div>
-            <Button
-                onClick={goToCheckout}
-            >
-                Go to Checkout
-            </Button>
+           
         </div>
     )
 }

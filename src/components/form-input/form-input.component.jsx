@@ -1,5 +1,5 @@
-const noInputStyles = "absolute top-1.5 left-0 pointer-events-none text-md transition duration-300 ease-in-out text-gray-600/50";
-const withInputStyles ="absolute -top-3.5 left-0 text-sm transition-all text-gray-600";
+const noInputStyles = "absolute top-1.5 left-0 pointer-events-none text-md transition duration-300 ease-in-out text-gray-600/0";
+const withInputStyles ="absolute -top-3.5 left-0 text-sm transition-all text-gray-400";
 
 
 const FormInput = ({ label, ...otherProps }) => {

@@ -18,7 +18,7 @@ const ProductCard = ({ product, category }) => {
 
     return (
         <div 
-            className="w-72 h-64 hover:scale-105 shadow hover:shadow-lg duration-500 ease-out flex flex-col justify-between bg-white"
+            className="w-64 sm:w-72 h-64 hover:scale-105 shadow hover:shadow-lg duration-500 ease-out flex flex-col justify-between bg-white"
             onClick={gotoProductHandler}    
         >
             <img 
@@ -26,8 +26,8 @@ const ProductCard = ({ product, category }) => {
                 src={image}
                 alt={`${title}`}
             />
-            <div className='w-full h-24 p-3 flex justify-between items-center'>
-                <span className='text-sm font-light'>{title}</span>
+            <div className='w-full h-24 p-3 flex justify-between items-center bg-slate-200/90'>
+                <span className='w-3/4 text-xs sm:text-sm font-light'>{title}</span>
                 <span className='text-sm font-bold'>{`$${price}`}</span>
             </div>
             {/* <Button onClick={addProductToCart}>Add to Cart</Button> */}

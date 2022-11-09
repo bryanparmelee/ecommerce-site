@@ -3,7 +3,7 @@ import { useState } from "react";
 import { 
     signInWithGooglePopup, 
     createUserDocFromAuth,
-    signInUserWithEmailAndPassword,
+    signInAuthUserWithEmailAndPassword,
 } from "../../utils/firebase/firebase.utils";
 
 import FormInput from "../form-input/form-input.component";
@@ -34,18 +34,21 @@ const SignInForm = () => {
     };
 
     const signInWithGoogle = async () => {
-        await signInWithGooglePopup();        
+        await signInWithGooglePopup(); 
+        await naviagte('/shop');       
     }
 
     const handleSubmit  = async (event) => {
         event.preventDefault();
            
         try {
-           const { user } = await signInUserWithEmailAndPassword(
+           const { user } = await signInAuthUserWithEmailAndPassword(
                 email, 
                 password
             );
             resetFormFields();
+            naviagte('/shop');
+
         } catch (error) {
             console.log(error);
             switch(error.code) {
@@ -69,10 +72,10 @@ const SignInForm = () => {
     }
 
     return (
-        <div className="w-72 sm:w-96 h-5/6 p-6 bg-white flex flex-col items-center justify-center rounded-lg border border-black">
-            <h1 className="text-2xl font-bold">Sign in with email and password</h1>
+        <div className="w-64 sm:w-96 h-5/6 p-6 bg-white flex flex-col items-center justify-between rounded-lg shadow-sm">
+            <h1 className="text-xl font-bold">Sign in with email and password</h1>
             <form
-                className="w-full h-full flex flex-col justify-evenly" 
+                className="w-full h-64 flex flex-col justify-evenly" 
                 onSubmit={handleSubmit}>        
                
                     <FormInput
@@ -92,18 +95,17 @@ const SignInForm = () => {
                         name='password' 
                         value={password}
                     />                
-                    <Button type="submit">Sign In</Button>
-         
-                <div className="w-full">
-                    <p className="w-full text-sm text-center font-light">——— or ———</p>
+                    <Button type="submit">Sign In</Button>         
+            </form>
+            <div className="w-full flex flex-col justify-between">
+                    <p className="w-full text-sm text-center font-light pb-2">——— or ———</p>
                     <Button 
                         buttonType={BUTTON_TYPE_CLASSES.blue}
                         onClick={signInWithGoogle}
                     >Sign In With Google</Button>
-                </div>
-            </form>
+            </div>
             <div className="w-full">
-                <span>Don't have an account?</span>
+                <span className="text-sm pb-1">Don't have an account?</span>
                 <Button type="button" onClick={gotoSignUpHandler}>Create an account</Button>
             </div>
         </div>

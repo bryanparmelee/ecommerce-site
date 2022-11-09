@@ -43,7 +43,7 @@ const ProductPage = () => {
                         />
             }
             {product &&       
-                <div className="w-full h-auto md:h-96 p-4 flex flex-col sm:flex-row justify-between items-center relative">
+                <div className="w-full sm:h-96 p-4 mb-4 flex flex-col sm:flex-row justify-between items-center relative">
                 
                     <img
                         className="w-5/6 md:w-1/2 max-h-72 p-6 object-contain " 
@@ -56,7 +56,7 @@ const ProductPage = () => {
                         <h2 className="font-black italic text-xl sm:text-2xl">{title}</h2>               
                         <h3 className="font-extrabold text-xl sm:text-2xl text-red-700">{'$' + price}</h3>
                         </div>
-                        <span className="text-sm font-light">{description}</span>
+                        <span className="text-sm font-light overflow-auto">{description}</span>
                         <div className="mt-3 flex justify-center items-center">
                         <Button onClick={addProductToCart}>Add to cart</Button>
                     
