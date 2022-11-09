@@ -9,18 +9,18 @@ const CategoryItem = ({ categoryItem }) => {
 
     return (
         <div 
-            className='group w-80 h-52 flex flex-col justify-between items-center relative'
+            className='group w-72 sm:w-96 h-52 flex flex-col justify-between items-center relative'
             onClick={onNavigateHandler}
         >
             
-            <div className="w-80 h-52 px-1 overflow-hidden border-2 border-black">
+            <div className="w-full h-52 overflow-hidden border-2 hover:border-cyan-300">
             <img
-                className="group-hover:scale-110 duration-500 ease-in w-full h-52 object-cover" 
+                className="group-hover:scale-125 duration-1000 ease-in w-full h-52 object-cover" 
                 src={image} 
                 alt='' />
             </div>
-            <div className="absolute top-20 left-24 w-32 h-14 flex items-center justify-center border border-black bg-slate-200/75">
-                <h2 className="text-lg text-center font-bold">{category.toUpperCase()}</h2>
+            <div className="absolute top-20 left-18 w-32 h-14 flex items-center justify-center border border-black bg-slate-200/90">
+                <h2 className="text-lg text-center font-bold text-black">{category.toUpperCase()}</h2>
             </div>                    
         </div>
     )

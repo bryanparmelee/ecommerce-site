@@ -6,7 +6,7 @@ export const BUTTON_TYPE_CLASSES = {
   };
 
 const getButton = (buttonType = BUTTON_TYPE_CLASSES.base) => ({
-    [BUTTON_TYPE_CLASSES.base]: "w-full h-10 px-4 bg-black text-white uppercase cursor-pointer flex justify-center items-center hover:bg-slate-300  hover:text-black hover:border-solid hover:border-black hover:border-2",
+    [BUTTON_TYPE_CLASSES.base]: "font-bold w-full h-10 px-4 bg-cyan-300 text-gray-600 uppercase cursor-pointer flex justify-center items-center hover:bg-gray-600  hover:text-cyan-300 hover:border-solid hover:border-cyan-300 hover:border-2",
     [BUTTON_TYPE_CLASSES.blue]: "w-full h-10 px-4 bg-blue-500 text-white uppercase cursor-pointer flex justify-center items-center hover:bg-slate-300  hover:text-blue hover:border-solid hover:border-blue hover:border-2",
 }[buttonType])
 

@@ -14,8 +14,8 @@ const CartIcon = () => {
         
     return (
         <div className='w-6 h-full relative flex items-center justify-center cursor-pointer' onClick={gotoCheckoutHandler}>
-            <ShoppingCartIcon className='w-6 h-6' color='white' />
-            <span className='absolute text-xs font-bold bottom-0.5'>{cartCount}</span>
+            <ShoppingCartIcon className='w-10 h-10' color='white' />
+            <span className='text-cyan-300 absolute text-xs font-bold bottom-2'>{cartCount}</span>
         </div>
     )
  }
