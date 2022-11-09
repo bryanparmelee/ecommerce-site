@@ -40,11 +40,6 @@ const Navigation = () => {
         navigate('/')    
     };
     
-
-    const navStyles = "hidden sm:flex w-4/6 h-full sm:w-72 justify-between sm:justify-between items-center relative text-cyan-300";
-
-    const mobileNavStyles = "absolute top-16 left-0 w-full h-24 flex flex-col justify-evenly items-center bg-slate-200/90 z-100";
-
     useEffect(() => {
         const checkIfClickedOutsideNavBar = (e) => {
             if(isNavBarOpen && ref.current && !ref.current.contains(e.target)) {
@@ -57,10 +52,14 @@ const Navigation = () => {
         }
     }, [isNavBarOpen]);
 
+    const navStyles = "hidden sm:flex h-full sm:w-60 ml-auto sm:justify-evenly items-center relative text-cyan-300";
+
+    const mobileNavStyles = "absolute top-16 left-0 w-full h-24 flex flex-col justify-evenly items-center bg-slate-200/90 z-100";
+
     return (
       <>
         <nav className="w-full h-16 flex px-4 justify-between items-center relative bg-gray-600 z-10">
-            <Link className="text-white" to='/'>
+            <Link to='/'>
                 <img
                     className="w-16 sm:w-28 pt-2" 
                     src={Logo}
@@ -71,16 +70,17 @@ const Navigation = () => {
             <button className="w-16 sm:hidden" onClick={toggleNavBar}><MenuBars /></button>
 
             <div className={isNavBarOpen ? mobileNavStyles : navStyles} ref={ref}>
-                    <div className="font-semibold cursor-pointer" onClick={handleShopNav}>
-                        SHOP
-                    </div>
-                    <div className="font-semibold cursor-pointer">
-                        {!currentUser ? 
-                            (<span onClick={toggleAccountOpen}>SIGN IN</span>) :
-                             (<span onClick={signOut}>SIGN OUT</span>)
-                        }
-                    </div>
+
+                <div className="font-semibold cursor-pointer" onClick={handleShopNav}>
+                    SHOP
                 </div>
+                <div className="font-semibold cursor-pointer">
+                    {!currentUser ? 
+                        (<span onClick={toggleAccountOpen}>SIGN IN</span>) :
+                            (<span onClick={signOut}>SIGN OUT</span>)
+                    }
+                </div>
+            </div>
             <div className="font-semibold cursor-pointer">
                 <CartIcon />
             </div>
