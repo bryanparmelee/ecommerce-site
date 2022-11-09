@@ -20,7 +20,7 @@ const CategoryItem = ({ categoryItem }) => {
                 alt='' />
             </div>
             <div className="absolute top-20 left-18 w-32 h-14 flex items-center justify-center border border-black bg-slate-200/90">
-                <h2 className="text-lg text-center font-bold text-black">{category.toUpperCase()}</h2>
+                <h2 className="text-lg text-center font-bold text-gray-600">{category.toUpperCase()}</h2>
             </div>                    
         </div>
     )

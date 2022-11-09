@@ -7,16 +7,16 @@ const CategoryPreview = ({ category, products }) => {
             <div className="flex justify-center sm:justify-between p-2">
                 <h2 className="text-2xl font-bold mb-2">
                     <Link to={`${category}`} >
-                        <span className="cursor-pointer">{category.toUpperCase()}</span>
+                        <span className="cursor-pointer text-gray-600">{category.toUpperCase()}</span>
                     </Link>                
                 </h2>
-                <Link to={`${category}`}><span className="hidden sm:block cursor-pointer text-sm">See all</span></Link>
+                <Link to={`${category}`}><span className="hidden sm:block cursor-pointer text-sm text-gray-600">See all</span></Link>
             </div>
    
             <div className="flex flex-wrap justify-center gap-8">
                 {
                     products
-                        .filter((_, idx) => idx < 3)
+                        .filter((_, idx) => idx < 2)
                         .map((product) => (
                             <ProductCard key={product.id} product={product} category={category} />
                         ))

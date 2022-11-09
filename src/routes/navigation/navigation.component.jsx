@@ -74,10 +74,7 @@ const Navigation = () => {
                     <div className="font-semibold cursor-pointer" onClick={handleShopNav}>
                         SHOP
                     </div>
-                    <div 
-                        className="font-semibold cursor-pointer"
-                        onClick={toggleAccountOpen} 
-                    >
+                    <div className="font-semibold cursor-pointer">
                         {!currentUser ? 
                             (<span onClick={toggleAccountOpen}>SIGN IN</span>) :
                              (<span onClick={signOut}>SIGN OUT</span>)
