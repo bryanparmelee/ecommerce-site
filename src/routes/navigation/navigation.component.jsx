@@ -32,7 +32,7 @@ const Navigation = () => {
 
     const toggleAccountOpen = () => {
         setIsNavBarOpen(false);
-        setIsAccountOpen(!isAccountOpen);
+        setIsAccountOpen(true);
     }
     
 
@@ -41,14 +41,14 @@ const Navigation = () => {
     const mobileNavStyles = "absolute top-16 left-0 w-full h-24 flex flex-col justify-evenly items-center bg-slate-200/90 z-100";
 
     useEffect(() => {
-        const checkIfClickedOutside = (e) => {
+        const checkIfClickedOutsideNavBar = (e) => {
             if(isNavBarOpen && ref.current && !ref.current.contains(e.target)) {
                 setIsNavBarOpen(false);
             }
         }
-        document.addEventListener("mousedown", checkIfClickedOutside);
+        document.addEventListener("mousedown", checkIfClickedOutsideNavBar);
         return () => {
-            document.removeEventListener("mousedown", checkIfClickedOutside);
+            document.removeEventListener("mousedown", checkIfClickedOutsideNavBar);
         }
     }, [isNavBarOpen]);
 
