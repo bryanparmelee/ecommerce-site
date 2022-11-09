@@ -90,7 +90,9 @@ const PaymentForm = () => {
                         Pay Now
                     </Button>
                 </form>
+               
             </div>
+            <span className="text-red-500 text-sm font-bold text-center px-2">Note: Use card number '4242 4242 4242 4242' to make a test transaction.</span>
         </>
     )
 }
