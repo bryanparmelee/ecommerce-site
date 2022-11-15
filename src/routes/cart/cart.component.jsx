@@ -24,19 +24,20 @@ const Cart = () => {
                             <CartItem key={cartItem.id} cartItem={cartItem} />      
                             <div className='w-full text-xl sm:text-3xl font-bold text-right pb-8'>
                             {cartTotal > 0 && `Total: $${cartTotal.toFixed(2)}`}            
-                            </div>
-                            <Button
-                                onClick={goToCheckout}
-                            >
-                                Go to Checkout
-                            </Button>   
+                            </div>                            
                         </>                                  
-                    )) : (
+                    )                 
+                    ) : (
                     <div className='w-full h-24 flex flex-col justify-between'>
                         <span className='text-md'>Your cart is empty</span>
                         <Button onClick={goToShop}>Start shopping</Button>
                     </div>
                 )}
+                {cartItems.length &&    <Button
+                                onClick={goToCheckout}
+                            >
+                                Go to Checkout
+                            </Button>   }
             </div>
            
         </div>
