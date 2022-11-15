@@ -15,17 +15,12 @@ const Cart = () => {
     const goToCheckout = () => navigate('/checkout')
 
     return (
-        <div className='w-full p-4 sm:w-[600px] h-full flex flex-col items-center justify-between'>
-            <h1 className='w-full text-3xl p-3 mb-4 font-bold'>YOUR CART</h1>            
+        <div className='w-full p-4 sm:px-64 h-full flex flex-col items-center justify-center'>
+            <h1 className='w-full text-3xl p-3 mb-4 font-bold text-center'>YOUR CART</h1>            
             <div className='w-full p-2'>
                 {cartItems.length ?
-                    cartItems.map((cartItem) => (    
-                        <>                                  
-                            <CartItem key={cartItem.id} cartItem={cartItem} />      
-                            <div className='w-full text-xl sm:text-3xl font-bold text-right pb-8'>
-                            {cartTotal > 0 && `Total: $${cartTotal.toFixed(2)}`}            
-                            </div>                            
-                        </>                                  
+                    cartItems.map((cartItem) => (                                   
+                            <CartItem key={cartItem.id} cartItem={cartItem} />                               
                     )                 
                     ) : (
                     <div className='w-full h-24 flex flex-col justify-between'>
@@ -33,11 +28,17 @@ const Cart = () => {
                         <Button onClick={goToShop}>Start shopping</Button>
                     </div>
                 )}
-                {cartItems.length &&    <Button
-                                onClick={goToCheckout}
-                            >
-                                Go to Checkout
-                            </Button>   }
+                {cartItems.length && ( 
+                    <>
+                        <div className='w-full text-xl sm:text-3xl font-bold text-right pb-8'>
+                            {cartTotal > 0 && `Total: $${cartTotal.toFixed(2)}`}            
+                        </div>      
+                        <Button
+                            onClick={goToCheckout}
+                        > Go to Checkout
+                        </Button>  
+                    </> 
+                )}
             </div>
            
         </div>
