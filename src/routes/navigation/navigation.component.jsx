@@ -1,8 +1,7 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
-import Logo from '../../assets/logo_transparent.png';
+import Logo from '../../assets/logo_transparent2.png';
 import { ReactComponent as MenuBars } from '../../assets/menu-bars.svg';
-
 
 import CartIcon from "../../components/cart-icon/cart-icon.component";
 
@@ -52,16 +51,16 @@ const Navigation = () => {
         }
     }, [isNavBarOpen]);
 
-    const navStyles = "hidden sm:flex h-full sm:w-60 ml-auto sm:justify-evenly items-center relative text-cyan-300";
+    const navStyles = "hidden sm:flex h-full sm:w-60 ml-auto sm:justify-evenly items-center relative text-cyan-300 border-2";
 
     const mobileNavStyles = "absolute top-16 left-0 w-full h-24 flex flex-col justify-evenly items-center bg-slate-200/90 z-100";
 
     return (
       <>
-        <nav className="w-full h-16 flex px-4 justify-between items-center relative bg-gray-600 z-10">
+        <nav className="w-full flex justify-between items-center relative bg-white z-10 border-2">
             <Link to='/'>
                 <img
-                    className="w-16 sm:w-28 pt-2" 
+                    className="w-16 sm:w-20 border" 
                     src={Logo}
                     alt='Deal loft logo'
                 />
@@ -80,10 +79,10 @@ const Navigation = () => {
                             (<span onClick={signOut}>SIGN OUT</span>)
                     }
                 </div>
-            </div>
-            <div className="font-semibold cursor-pointer">
-                <CartIcon />
-            </div>
+                <div className="font-semibold cursor-pointer">
+                    <CartIcon />
+                </div>
+            </div>           
             {isAccountOpen && <AccountDropdown />}   
         </nav>
         <Outlet />

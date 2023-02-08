@@ -4,7 +4,11 @@ module.exports = {
     './src/**/*.{js,jsx,ts,tsx}'
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'main': "url('./src/assets/overlapping-circles.svg')"
+      }
+    },
   },
   plugins: [],
 }
