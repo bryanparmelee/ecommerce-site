@@ -1,12 +1,11 @@
 import SignUpForm from "../../components/sign-up-form/sign-up-form.component";
 
-
 const SignUp = () => {
-    return (
-        <div className="w-full h-screen px-8 flex flex-col justify-center items-center bg-gray-400">
-            <SignUpForm />
-        </div>
-    )
-}
+  return (
+    <div className="flex h-screen w-full flex-col items-center justify-center px-8">
+      <SignUpForm />
+    </div>
+  );
+};
 
 export default SignUp;
