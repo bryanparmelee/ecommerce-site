@@ -12,7 +12,7 @@ const Directory = () => {
           <h1 className='text-6xl font-extrabold'>Welcome to the Deal Loft.</h1>
           <h4 className='font-thin text-3xl italic flex-end'>Prices good enough for anyone to appreciate.</h4>
           <img 
-            className='p-8'
+            className='md:p-8'
             src={Hero}
             alt='Happy dog looking at laptop screen'
           />

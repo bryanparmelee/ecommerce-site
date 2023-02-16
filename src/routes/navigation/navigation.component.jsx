@@ -60,7 +60,7 @@ const Navigation = () => {
 
     return (
       <>
-        <nav className="w-full flex justify-between items-center relative bg-white z-10 px-4 sm:px-8 py-4">
+        <nav className="w-full flex justify-between items-center relative bg-white z-10 px-4 sm:px-12 py-4">
             <Link to='/'>
                 <img
                     className="w-16 sm:w-20 " 
