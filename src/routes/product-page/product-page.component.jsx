@@ -42,15 +42,15 @@ const ProductPage = () => {
                         />
             }
             {product &&       
-                <div className="w-full p-4 mb-4 flex flex-col sm:flex-row justify-between items-center relative border-2">
+                <div className="w-full min-h-screen p-4 mb-4 flex flex-col sm:flex-row justify-evenly items-center relative">
                 
                     <img
-                        className="w-80 p-6 object-contain " 
+                        className="w-72 sm:w-80 md:w-96 p-6 object-contain " 
                         src={image} 
                         alt={`${title}`} 
 
                     />
-                    <div className="w-full h-80 sm:h-72 px-3 flex flex-col justify-between">
+                    <div className="w-72 sm:w-80 md:w-96 px-3 flex flex-col gap-8 justify-between">
                         <div >
                         <h2 className="font-black italic text-xl sm:text-2xl">{title}</h2>               
                         <h3 className="font-extrabold text-xl sm:text-2xl text-red-700">{'$' + price}</h3>
