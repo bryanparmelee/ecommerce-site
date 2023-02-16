@@ -5,66 +5,67 @@ import { CartContext } from "../../contexts/cart.context";
 import Button from "../../components/button/button.component";
 import CartSuccess from "../../components/cart-success/cart-success.component";
 
-
-
 const ProductPage = () => {
-    const { productId } = useParams();
+  const { productId } = useParams();
 
-    const location = useLocation();
-    const category = location.pathname.split('/')[2];
-    const { categoriesMap } = useContext(CategoriesContext);
-    const [product, setProduct] = useState({});
-    const categoryItems = categoriesMap[category];
-    
-    useEffect(() => {
-        const currProduct = categoryItems ? categoryItems.filter((item) => item.id === Number(productId)) : {};
-        setProduct(...currProduct);
-    }, [productId, categoryItems]);
+  const location = useLocation();
+  const category = location.pathname.split("/")[2];
+  const { categoriesMap } = useContext(CategoriesContext);
+  const [product, setProduct] = useState({});
+  const categoryItems = categoriesMap[category];
 
-    const { addItemToCart } = useContext(CartContext);
+  useEffect(() => {
+    const currProduct = categoryItems
+      ? categoryItems.filter((item) => item.id === Number(productId))
+      : {};
+    setProduct(...currProduct);
+  }, [productId, categoryItems]);
 
-    const { title, description, image, price } = product;
+  const { addItemToCart } = useContext(CartContext);
 
-    const [isAddedToCart, setIsAddedToCart] = useState(false);
+  const { title, description, image, price } = product;
 
-    const addProductToCart = () => {
-        addItemToCart(product);
-        setIsAddedToCart(!isAddedToCart);
-    }
+  const [isAddedToCart, setIsAddedToCart] = useState(false);
 
-    return (    
-        <>
-           {isAddedToCart && 
-                        <CartSuccess 
-                            product={product} 
-                            isAddedToCart={isAddedToCart} 
-                            setIsAddedToCart={setIsAddedToCart}             
-                        />
-            }
-            {product &&       
-                <div className="w-full min-h-screen p-4 mb-4 flex flex-col sm:flex-row justify-evenly items-center relative">
-                
-                    <img
-                        className="w-72 sm:w-80 md:w-96 p-6 object-contain " 
-                        src={image} 
-                        alt={`${title}`} 
+  const addProductToCart = () => {
+    addItemToCart(product);
+    setIsAddedToCart(!isAddedToCart);
+  };
 
-                    />
-                    <div className="w-72 sm:w-80 md:w-96 px-3 flex flex-col gap-8 justify-between">
-                        <div >
-                        <h2 className="font-black italic text-xl sm:text-2xl">{title}</h2>               
-                        <h3 className="font-extrabold text-xl sm:text-2xl text-red-700">{'$' + price}</h3>
-                        </div>
-                        <span className="text-sm font-light overflow-auto">{description}</span>
-                        <div className="mt-3 flex justify-center items-center">
-                        <Button onClick={addProductToCart}>Add to cart</Button>
-                    
-                        </div>
-                    </div>
-                </div>
-            }
-        </>
-    )
-}
+  return (
+    <>
+      {isAddedToCart && (
+        <CartSuccess
+          product={product}
+          isAddedToCart={isAddedToCart}
+          setIsAddedToCart={setIsAddedToCart}
+        />
+      )}
+      {product && (
+        <div className="relative mb-4 flex min-h-screen w-full flex-col items-center justify-evenly p-4 sm:flex-row">
+          <img
+            className="w-72 object-contain p-6 sm:w-80 md:w-96 "
+            src={image}
+            alt={`${title}`}
+          />
+          <div className="flex w-72 flex-col justify-between gap-8 px-3 sm:w-80 md:w-96">
+            <div>
+              <h2 className="text-xl font-black italic sm:text-2xl">{title}</h2>
+              <h3 className="text-xl font-extrabold text-red-700 sm:text-2xl">
+                {"$" + price}
+              </h3>
+            </div>
+            <span className="overflow-auto text-sm font-light">
+              {description}
+            </span>
+            <div className="mt-3 flex items-center justify-center">
+              <Button onClick={addProductToCart}>Add to cart</Button>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
 
 export default ProductPage;
