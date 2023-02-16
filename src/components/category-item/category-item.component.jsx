@@ -9,18 +9,18 @@ const CategoryItem = ({ categoryItem }) => {
 
     return (
         <div 
-            className='group w-72 sm:w-96 h-52 flex flex-col justify-between items-center relative'
+            className='transistion ease-in-out w-80 md:w-72 lg:w-60 h-80 md:h-72 lg:h-60 flex flex-col justify-between items-center relative shadow-md rounded-xl  hover:scale-105 hover:shadow-xl duration-200 cursor-pointer'
             onClick={onNavigateHandler}
         >
             
-            <div className="w-full h-52 overflow-hidden border-2 group-hover:border-cyan-300">
+            <div className="w-full h-full overflow-hidden rounded-xl">
             <img
-                className="group-hover:scale-125 duration-1000 ease-in w-full h-52 object-cover" 
+                className="w-full object-fill " 
                 src={image} 
                 alt='' />
             </div>
-            <div className="absolute top-20 left-18 w-32 h-14 flex items-center justify-center border border-black bg-slate-200/90">
-                <h2 className="text-lg text-center font-bold text-gray-600">{category.toUpperCase()}</h2>
+            <div className="absolute bottom-5 py-2 px-4 flex items-center justify-center border border-black bg-black rounded-3xl">
+                <h2 className="text-lg text-center text-white font-bold">Shop {category.charAt(0).toUpperCase() + category.slice(1)}</h2>
             </div>                    
         </div>
     )
