@@ -32,8 +32,7 @@ const ProductPage = () => {
         setIsAddedToCart(!isAddedToCart);
     }
 
-    return (
-    
+    return (    
         <>
            {isAddedToCart && 
                         <CartSuccess 
@@ -43,10 +42,10 @@ const ProductPage = () => {
                         />
             }
             {product &&       
-                <div className="w-full sm:h-96 p-4 mb-4 flex flex-col sm:flex-row justify-between items-center relative">
+                <div className="w-full p-4 mb-4 flex flex-col sm:flex-row justify-between items-center relative border-2">
                 
                     <img
-                        className="w-5/6 md:w-1/2 max-h-72 p-6 object-contain " 
+                        className="w-80 p-6 object-contain " 
                         src={image} 
                         alt={`${title}`} 
 

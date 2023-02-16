@@ -3,14 +3,15 @@ import ProductCard from "../product-card/product-card.component";
 
 const CategoryPreview = ({ category, products }) => {
     return (
-        <div className="flex flex-col w-full px-4 mb-12 pb-4">
-            <div className="flex justify-center sm:justify-between p-2">
-                <h2 className="text-2xl font-bold mb-2">
+        <div className="flex flex-col items-center w-full px-4 mb-12 pb-4">
+            <div className="flex flex-col justify-center items-center p-2">
+                <h2 className="text-4xl font-bold mb-2">
                     <Link to={`${category}`} >
-                        <span className="cursor-pointer text-gray-600">{category.toUpperCase()}</span>
+                        <span className="cursor-pointer">{category.charAt(0).toUpperCase() + category.slice(1)}</span>
                     </Link>                
                 </h2>
-                <Link to={`${category}`}><span className="hidden sm:block cursor-pointer text-sm text-gray-600">See all</span></Link>
+                <Link to={`${category}`}><span className="cursor-pointer text-lg text-zinc-600 hover:text-black">See all &#8250; </span></Link>
+             
             </div>
    
             <div className="flex flex-wrap justify-center gap-8">
@@ -21,6 +22,7 @@ const CategoryPreview = ({ category, products }) => {
                             <ProductCard key={product.id} product={product} category={category} />
                         ))
                 }
+         
             </div>
         </div>
     )
