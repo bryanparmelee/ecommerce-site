@@ -82,6 +82,7 @@ const SignUpForm = () => {
         <FormInput
           label="Email"
           type="email"
+          autocomplete="username"
           required
           onChange={handleChange}
           name="email"
@@ -91,6 +92,7 @@ const SignUpForm = () => {
         <FormInput
           label="Password"
           type="password"
+          autocomplete="new-password"
           required
           onChange={handleChange}
           name="password"
