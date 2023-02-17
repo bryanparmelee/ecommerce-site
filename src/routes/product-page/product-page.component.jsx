@@ -4,6 +4,7 @@ import { CategoriesContext } from "../../contexts/categories.context";
 import { CartContext } from "../../contexts/cart.context";
 import Button from "../../components/button/button.component";
 import CartSuccess from "../../components/cart-success/cart-success.component";
+import Spinner from "../../components/spinner/spinner.component";
 
 const ProductPage = () => {
   const { productId } = useParams();
@@ -43,11 +44,16 @@ const ProductPage = () => {
       )}
       {product && (
         <div className="relative mb-4 flex min-h-screen w-full flex-col items-center justify-evenly p-4 sm:flex-row">
-          <img
-            className="w-72 object-contain p-6 sm:w-80 md:w-96 "
-            src={image}
-            alt={`${title}`}
-          />
+          {image ? (
+            <img
+              className="w-72 object-contain p-6 sm:w-80 md:w-96 "
+              src={image}
+              alt={`${title}`}
+            />
+          ) : (
+            <Spinner />
+          )}
+
           <div className="flex w-72 flex-col justify-between gap-8 px-3 sm:w-80 md:w-96">
             <div>
               <h2 className="text-xl font-black italic sm:text-2xl">{title}</h2>

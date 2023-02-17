@@ -9,7 +9,7 @@ const OrderConfirmation = () => {
 
   const clearOrder = () => {
     clearCart();
-    navigate("/shop");
+    navigate("/");
   };
 
   return (
