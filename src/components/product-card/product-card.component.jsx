@@ -1,14 +1,10 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { CartContext } from "../../contexts/cart.context";
-
 import Spinner from "../spinner/spinner.component";
-import Button from "../button/button.component";
 
 const ProductCard = ({ product, category }) => {
   const { title, price, image, id } = product;
-  const { addItemToCart } = useContext(CartContext);
   const navigate = useNavigate();
   const gotoProductHandler = () => navigate(`/shop/${category}/${id}`);
   const [loaded, setLoaded] = useState(false);
@@ -35,7 +31,6 @@ const ProductCard = ({ product, category }) => {
         <span className="text-md w-3/4 font-light sm:text-sm">{title}</span>
         <span className="text-md font-bold text-red-600 sm:text-sm">{`$${price}`}</span>
       </div>
-      {/* <Button onClick={addProductToCart}>Add to Cart</Button> */}
     </div>
   );
 };
