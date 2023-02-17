@@ -68,7 +68,7 @@ const SignInForm = () => {
   };
 
   return (
-    <div className="flex max-w-[600px] flex-col items-center gap-4 rounded-lg p-8 shadow-lg">
+    <div className="flex max-w-[600px] flex-col items-center gap-4 rounded-lg p-2 shadow-lg">
       <h1 className="text-xl font-bold">Sign in with email and password</h1>
       <form
         className="flex h-64 w-full flex-col items-center justify-evenly"
