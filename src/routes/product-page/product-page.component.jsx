@@ -12,6 +12,7 @@ const ProductPage = () => {
   const location = useLocation();
   const category = location.pathname.split("/")[2];
   const { categoriesMap } = useContext(CategoriesContext);
+  const [loaded, setLoaded] = useState(false);
   const [product, setProduct] = useState({});
   const categoryItems = categoriesMap[category];
 
@@ -44,15 +45,18 @@ const ProductPage = () => {
       )}
       {product && (
         <div className="relative mb-4 flex min-h-screen w-full flex-col items-center justify-evenly p-4 sm:flex-row">
-          {image ? (
-            <img
-              className="w-72 object-contain p-6 sm:w-80 md:w-96 "
-              src={image}
-              alt={`${title}`}
-            />
-          ) : (
-            <Spinner />
+          {loaded ? null : (
+            <div className="flex h-full w-full items-center justify-center">
+              <Spinner />
+            </div>
           )}
+          <img
+            style={loaded ? {} : { display: "none" }}
+            className="w-72 object-contain p-6 sm:w-80 md:w-96 "
+            src={image}
+            alt={`${title}`}
+            onLoad={() => setLoaded(true)}
+          />
 
           <div className="flex w-72 flex-col justify-between gap-8 px-3 sm:w-80 md:w-96">
             <div>

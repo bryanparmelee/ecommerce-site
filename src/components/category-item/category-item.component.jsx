@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Spinner from "../spinner/spinner.component";
 
 const CategoryItem = ({ categoryItem }) => {
+  const [loaded, setLoaded] = useState(false);
   const { category, image, route } = categoryItem;
   const navigate = useNavigate();
   const onNavigateHandler = () => navigate(route);
@@ -12,11 +14,18 @@ const CategoryItem = ({ categoryItem }) => {
       onClick={onNavigateHandler}
     >
       <div className="h-full w-full overflow-hidden rounded-xl">
-        {image ? (
-          <img className="w-full object-fill " src={image} alt="" />
-        ) : (
-          <Spinner />
+        {loaded ? null : (
+          <div className="flex h-full w-full items-center justify-center">
+            <Spinner />
+          </div>
         )}
+        <img
+          className="w-full object-fill"
+          style={loaded ? {} : { display: "none" }}
+          src={image}
+          alt=""
+          onLoad={() => setLoaded(true)}
+        />
       </div>
       <div className="absolute bottom-5 flex items-center justify-center rounded-3xl bg-black py-2 px-4 group-hover:bg-zinc-700">
         <h2 className="text-center text-lg font-bold text-white">
