@@ -34,8 +34,6 @@ const PaymentForm = () => {
       return res.json();
     });
 
-    console.log(response);
-
     const clientSecret = response.paymentIntent.client_secret;
 
     const paymentResult = await stripe.confirmCardPayment(clientSecret, {
@@ -60,9 +58,7 @@ const PaymentForm = () => {
 
   return (
     <>
-      {paymentSuccess && (
-        <OrderConfirmation closePaymentSuccess={closePaymentSuccess} />
-      )}
+      {paymentSuccess && <OrderConfirmation />}
       <div className="flex min-h-[500px] w-full flex-wrap items-center justify-evenly">
         <div className="flex w-80 flex-col justify-evenly gap-4 p-2">
           <h1 className="mb-2 text-xl font-bold sm:text-3xl">Order Summary</h1>

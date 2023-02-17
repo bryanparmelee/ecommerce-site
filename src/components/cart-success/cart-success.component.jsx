@@ -20,7 +20,7 @@ const CartSuccess = ({ product, isAddedToCart, setIsAddedToCart }) => {
       onClick={closeCartSuccess}
     >
       <div
-        className="relative flex h-80 w-5/6 flex-col justify-evenly bg-white p-4 sm:w-96"
+        className="relative flex h-80 w-5/6 flex-col items-center justify-evenly bg-white p-4 sm:w-96"
         onClick={(e) => e.stopPropagation()}
       >
         <h2 className="text-2xl font-bold">Added to cart!</h2>
