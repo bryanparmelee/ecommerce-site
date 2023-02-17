@@ -1,7 +1,8 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import Logo from "../../assets/logo_block.png";
 import MenuBars from "../../assets/menu-bars.svg";
+import { signOutUser } from "../../utils/firebase/firebase.utils";
 
 import CartIcon from "../../components/cart-icon/cart-icon.component";
 
@@ -33,26 +34,11 @@ const Navigation = () => {
     setIsAccountOpen(true);
   };
   const signOut = () => {
-    setCurrentUser(null);
+    // setCurrentUser(null);
+    signOutUser();
     setIsAccountOpen(false);
     navigate("/");
   };
-
-  // useEffect(() => {
-  //     const checkIfClickedOutsideNavBar = (e) => {
-  //         if((isNavBarOpen && ref.current && !ref.current.contains(e.target)) ||
-  //             (isNavBarOpen && e.target.id === 'menu-bars')
-  //         ) {
-  //             setIsNavBarOpen(false);
-  //             console.log(isNavBarOpen);
-  //             console.log(e.target.id);
-  //         }
-  //     }
-  //     document.addEventListener("mousedown", checkIfClickedOutsideNavBar);
-  //     return () => {
-  //         document.removeEventListener("mousedown", checkIfClickedOutsideNavBar);
-  //     }
-  // }, [isNavBarOpen]);
 
   const navStyles = "hidden sm:flex h-full ml-auto gap-5 items-center relative";
 
